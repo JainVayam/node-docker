@@ -1,0 +1,10 @@
+version: "3"
+services: 
+  node-app:
+    build:
+      context: .   #Used for the location
+      args:
+        NODE_ENV: development #Used to pass args
+    environment: 
+      - NODE_ENV=production
+    command: node index.js 

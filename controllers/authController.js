@@ -7,6 +7,7 @@ const signUp = async (req,res) => {
   try {
     const hashedPassword = await bcrypt.hash(password, 12)
     const newUser = await User.create({username, password: hashedPassword})
+    req.session.user = newUser
     res.status(201).json({
       data: {
         newUser
@@ -34,6 +35,7 @@ const login = async (req,res) => {
       message: 'Wrong credentials'
     })
    }
+   req.session.user = user
     res.status(201).json({
       data: {
         user

@@ -35,7 +35,6 @@ const getOnePost =  async (req,res) => {
 
 const createPost = async (req, res) => {
   try {
-    console.log('QWQWEQWE', req.body)
     const newPost = await Post.create(req.body)
     res.status(200).json({
       status: 'success', 

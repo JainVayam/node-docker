@@ -1,13 +1,14 @@
 import express from 'express'
 
 import * as PostController from '../controllers/postController.js'
+import protect from '../middleware/authMiddleware.js'
 
 const router = express.Router()
 
 router
   .route('/')
-  .get(PostController.getAllPosts)
-  .post(PostController.createPost)
+  .get(protect, PostController.getAllPosts)
+  .post(protect, PostController.createPost)
 
 router
   .route('/:id')

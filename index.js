@@ -45,7 +45,7 @@ app.use(session({
 
 app.use('/api/v1/posts', postRouter)
 app.use('/api/v1/user', authRouter)
-app.get('/ping', (req, res) => {
+app.get('/api/v1/ping', (req, res) => {
   res.send("Tested Ok")
 })
 

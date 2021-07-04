@@ -1,5 +1,8 @@
 version: "3"
-services: 
+services:
+  nginx:
+    ports:
+      - "3000:80"
   node-app:
     build:
       context: .
@@ -12,4 +15,5 @@ services:
       - NODE_ENV=development
       - MONGO_USER=vayam
       - MONGO_PASS=rails
+      - SESSION_SECRET=testscret
     command: npm run dev

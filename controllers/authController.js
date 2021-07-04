@@ -14,7 +14,8 @@ const signUp = async (req,res) => {
       }
     })
   } catch(e) {
-    res.status(400).json({ status: 'Failed'})
+    console.log("WAWAW", e, req.body)
+    res.status(400).json({ error: e, status: 'Failed'})
   }
 }
 

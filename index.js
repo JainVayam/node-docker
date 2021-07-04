@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import session from 'express-session'
 import redis from 'redis'
 import Redis from 'connect-redis'
+import cors from 'cors'
 
 import config from './config/config.js'
 import postRouter from './routes/postRoute.js'
@@ -29,6 +30,7 @@ const app = express()
 
 const port = process.env.PORT || 3000
 
+app.use(cors({}))
 app.use(express.json())
 app.use(session({
   store: new RedisStore({ client: redisClient }),
@@ -42,11 +44,13 @@ app.use(session({
   }
 }))
 
+app.set('trust proxy')
 
 app.use('/api/v1/posts', postRouter)
 app.use('/api/v1/user', authRouter)
 app.get('/api/v1/ping', (req, res) => {
-  res.send("Tested Ok")
+  console.log("ASDASDASDASDA")
+  res.send("Tested Oasdk")
 })
 
 app.listen(port, () => console.log("Hello World"))

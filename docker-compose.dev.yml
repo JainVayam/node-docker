@@ -16,4 +16,6 @@ services:
       - MONGO_USER=vayam
       - MONGO_PASS=rails
       - SESSION_SECRET=testscret
+    env_file:
+      - .env
     command: npm run dev
